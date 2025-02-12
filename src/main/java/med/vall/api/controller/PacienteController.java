@@ -12,15 +12,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.vall.api.Paciente.DadosAtualizacaoPaciente;
-import med.vall.api.Paciente.DadosCadastroPaciente;
-import med.vall.api.Paciente.DadosListagemPaciente;
-import med.vall.api.Paciente.Paciente;
-import med.vall.api.Paciente.PacienteRepository;
+import med.vall.api.domain.paciente.DadosAtualizacaoPaciente;
+import med.vall.api.domain.paciente.DadosCadastroPaciente;
+import med.vall.api.domain.paciente.DadosDetalhamentoPaciente;
+import med.vall.api.domain.paciente.DadosListagemPaciente;
+import med.vall.api.domain.paciente.Paciente;
+import med.vall.api.domain.paciente.PacienteRepository;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -56,7 +56,7 @@ public class PacienteController {
     public ResponseEntity pegarPorId(@PathVariable Long id) {
         var paciente = pacienteRepository.getReferenceById(id);
 
-        return ResponseEntity.ok(new DadosListagemPaciente(paciente));
+        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 
     @PutMapping

@@ -1,4 +1,4 @@
-package med.vall.api.Paciente;
+package med.vall.api.domain.paciente;
 
 public record DadosListagemPaciente(
         Long id,
