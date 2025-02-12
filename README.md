@@ -1,4 +1,5 @@
 # API Rest em Java
+Projeto dos cursos "Spring Boot 3: desenvolva uma API Rest em Java" e "Spring Boot 3: aplique boas práticas e proteja uma API Rest" da plataforma Alura.
 
 ## Resumo do projeto
 Projeto de API Rest para prática de Java e Spring Framework.
