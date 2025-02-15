@@ -1,4 +1,4 @@
-package med.vall.api.infra;
+package med.vall.api.infra.exceptions;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
