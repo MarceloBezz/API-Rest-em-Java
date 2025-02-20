@@ -33,13 +33,14 @@ public class Consulta {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_medico")
+    @JoinColumn(name = "medico_id")
     private Medico medico;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
+    @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime data;
 
     @Column(name = "motivo_cancelamento")
