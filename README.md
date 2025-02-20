@@ -10,6 +10,8 @@ Backend de uma aplicação de uma clínica médica.
 * `Java` v17,
 * `Spring` v3.4.2,
 * `Spring Data JPA`,
+* `Spring Security`,
+* `Token JWT`,
 * `flyway`,
 * `lombok`,
 
