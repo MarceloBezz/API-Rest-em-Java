@@ -11,6 +11,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException.BadRequest;
 
 import jakarta.persistence.EntityNotFoundException;
 import med.vall.api.domain.ValidacaoException;
@@ -45,6 +46,11 @@ public class TratadorDeErros {
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity tratarErroAuthentication() {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Falha na autenticação");
+    }
+
+    @ExceptionHandler(BadRequest.class)
+    public ResponseEntity tratarErroBadRequest() {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Solicitação inválida");
     }
 
     @ExceptionHandler(AccessDeniedException.class)

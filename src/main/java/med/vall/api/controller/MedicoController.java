@@ -25,7 +25,6 @@ import med.vall.api.domain.medico.MedicoRepository;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 @RestController
 @RequestMapping("/medicos")
 @SecurityRequirement(name = "bearer-key")
@@ -33,7 +32,7 @@ public class MedicoController {
 
     @Autowired
     private MedicoRepository medicoRepository;
-    
+
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder) {
@@ -46,10 +45,10 @@ public class MedicoController {
     }
 
     @GetMapping
-    public ResponseEntity listar(@PageableDefault(sort = {"nome"}) Pageable pageable) {
+    public ResponseEntity listar(@PageableDefault(sort = { "nome" }) Pageable pageable) {
         var page = medicoRepository
-        .findAllByAtivoTrue(pageable)
-        .map(DadosListagemMedico::new);
+                .findAllByAtivoTrue(pageable)
+                .map(DadosListagemMedico::new);
 
         return ResponseEntity.ok(page);
     }

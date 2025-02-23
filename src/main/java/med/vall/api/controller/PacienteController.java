@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
-
 @RestController
 @RequestMapping("/pacientes")
 @SecurityRequirement(name = "bearer-key")
@@ -34,7 +32,7 @@ public class PacienteController {
 
     @Autowired
     private PacienteRepository pacienteRepository;
-    
+
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPaciente dados, UriComponentsBuilder uriBuilder) {
@@ -48,7 +46,7 @@ public class PacienteController {
     }
 
     @GetMapping
-    public ResponseEntity listar(@PageableDefault(sort = {"nome"}) Pageable pageable) {
+    public ResponseEntity listar(@PageableDefault(sort = { "nome" }) Pageable pageable) {
         var pacientes = pacienteRepository.findAllByAtivoTrue(pageable).map(DadosListagemPaciente::new);
 
         return ResponseEntity.ok(pacientes);
@@ -57,7 +55,7 @@ public class PacienteController {
     @GetMapping("/{id}")
     public ResponseEntity pegarPorId(@PathVariable Long id) {
         var paciente = pacienteRepository.getReferenceById(id);
-
+        
         return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 
@@ -78,5 +76,5 @@ public class PacienteController {
 
         return ResponseEntity.noContent().build();
     }
-    
+
 }

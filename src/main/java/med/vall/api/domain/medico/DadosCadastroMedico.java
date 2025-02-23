@@ -29,4 +29,9 @@ public record DadosCadastroMedico(
         @NotBlank
         String telefone
         ) {
+
+    public DadosCadastroMedico(String nome, String email, String telefone, String crm, Especialidade especialidade,
+            DadosEndereco dadosEndereco) {
+        this(nome, email, crm, especialidade, dadosEndereco, telefone);
+    }
 }
